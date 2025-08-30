@@ -18,17 +18,8 @@ class Main {
         while (x != y) {
             count++;
 
-            if (x % 2 == 0) {
-                x /= 2;
-            } else {
-                x = (x + 1) / 2;
-            }
-
-            if (y % 2 == 0) {
-                y /= 2;
-            } else {
-                y = (y + 1) / 2;
-            }
+            x = (x + 1) / 2;
+            y = (y + 1) / 2;
         }
 
         System.out.println(count);
