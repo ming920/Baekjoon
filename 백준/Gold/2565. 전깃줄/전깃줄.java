@@ -25,11 +25,6 @@ public class Main {
         int[] dp = new int[N + 1];
         Arrays.fill(dp, 1);
         
-        for (int i = 2; i <= N; i++) {
-            int left = line[i - 1][0], right = line[i - 1][1];
-            
-        }
-        
         for (int i = 1; i <= N; i++) {
             for (int j = 1; j <= i; j++) {
                 int left = line[j][0], right = line[j][1];
