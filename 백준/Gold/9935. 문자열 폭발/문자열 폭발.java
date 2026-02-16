@@ -15,11 +15,15 @@ public class Main {
             char ch = str.charAt(i);
             stack.push(ch);
             
-            boolean deleted = true;
-            if (ch == stack.peek() && stack.size() >= bombLen) {
+            boolean deleted = false;
+            if (bomb.charAt(bombLen - 1) == ch && stack.size() >= bombLen) {
+                deleted = true;
                 for (int j = 0; j < bombLen; j++) {
                     int deleteLen = stack.size() - bombLen + j;
-                    if (stack.elementAt(deleteLen) != bomb.charAt(j)) deleted = false;
+                    if (stack.elementAt(deleteLen) != bomb.charAt(j)) {
+                        deleted = false;
+                        break;
+                    }
                 }
             }
             
