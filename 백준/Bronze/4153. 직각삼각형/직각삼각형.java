@@ -16,7 +16,7 @@ public class Main {
             if (len[0] == 0 && len[1] == 0 && len[2] == 0) break;
             
             Arrays.sort(len);
-            if (Math.pow(len[2], 2) == Math.pow(len[0], 2) + Math.pow(len[1], 2)) sb.append("right\n");
+            if (len[2] * len[2] == len[0] * len[0] + len[1] * len[1]) sb.append("right\n");
             else sb.append("wrong\n");
         }
         
