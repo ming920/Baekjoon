@@ -55,8 +55,12 @@ public class Main {
         dijkstra(start);
         
         System.out.println(dist[end]);
-        printRoute(end);
-        stack.push(start);
+        
+        int temp = end;
+        while (temp != 0) {
+            stack.push(temp);
+            temp = route[temp];
+        }
         System.out.println(stack.size());
         while (!stack.isEmpty()) {
             System.out.print(stack.pop() + " ");
@@ -79,13 +83,6 @@ public class Main {
                     route[next.to] = now.to;
                 }
             }
-        }
-    }
-    
-    public static void printRoute(int index) {
-        if (route[index] != 0) {
-            stack.push(index);
-            printRoute(route[index]);
         }
     }
 }
