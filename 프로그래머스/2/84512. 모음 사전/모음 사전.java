@@ -1,5 +1,7 @@
 import java.util.*;
 
+// TreeSet 이용 -> headSet.size()로 index 알기
+// StringBuilder deleteCharAt()
 class Solution {
     
     TreeSet<String> set = new TreeSet<>();
