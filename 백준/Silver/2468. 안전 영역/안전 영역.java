@@ -15,17 +15,16 @@ public class Main {
         N = Integer.parseInt(br.readLine());
         
         board = new int[N][N];
-        int min = Integer.MAX_VALUE, max = 0;
+        int max = 0;
         for (int i = 0; i < N; i++) {
             st = new StringTokenizer(br.readLine());
             for (int j = 0; j < N; j++) {
                 board[i][j] = Integer.parseInt(st.nextToken());
-                min = Math.min(min, board[i][j]);
                 max = Math.max(max, board[i][j]);
             }
         }
         
-        for (int h = 0; h <= 100; h++) {
+        for (int h = 0; h <= max; h++) {
             int cnt = 0;
             visited = new boolean[N][N];
             
