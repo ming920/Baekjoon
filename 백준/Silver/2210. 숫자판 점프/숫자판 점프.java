@@ -21,7 +21,7 @@ public class Main {
         
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 5; j++) {
-                dfs(0, 0, i, j);
+                dfs(1, board[i][j], i, j);
             }
         }
         
