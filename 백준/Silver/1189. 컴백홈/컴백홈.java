@@ -31,6 +31,8 @@ public class Main {
     }
     
     public static void dfs(int sy, int sx, int depth) {
+        if (depth > K) return;
+        
         if (sy == 0 && sx == M - 1) {
             if (depth == K) result++;
             return;
