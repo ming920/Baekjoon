@@ -13,18 +13,27 @@ public class Main {
             }
         }
         
-        int left = 0, right = 0, result = 0;
-        long sum = 0;
+        long[] A = new long[list.size() + 1];
+        for (int i = 1; i <= list.size(); i++) {
+            A[i] = list.get(i - 1);
+        }
         
-        while (true) {
-            if (sum >= num) {
-                sum -= list.get(left++);
-            } else {
-                if (right == list.size()) break;
-                sum += list.get(right++);
-            }
+        for (int i = 1; i <= list.size(); i++) {
+            A[i] += A[i - 1];
+        }
+        
+        int left = 0, right = 0, result = 0;
+        
+        while (right < A.length) {
+            long diff = A[right] - A[left];
             
-            if (sum == num) result++;
+            if (diff < num) right++;
+            else if (diff > num) left++;
+            else {
+                result++;
+                right++;
+                left++;
+            }
         }
         
         System.out.println(result);
