@@ -15,7 +15,7 @@ public class Main {
         
         int answer = Math.max(arr[0], N - arr[M - 1]);
         for (int i = 1; i < M; i++) {
-            answer = Math.max(answer, (int) Math.ceil((double)(arr[i] - arr[i - 1]) / 2));
+            answer = Math.max(answer, (arr[i] - arr[i - 1] + 1) / 2);
         }
         
         System.out.println(answer);
