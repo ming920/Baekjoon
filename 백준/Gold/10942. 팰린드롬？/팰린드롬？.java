@@ -13,6 +13,26 @@ public class Main {
             arr[i] = Integer.parseInt(st.nextToken());
         }
         
+        boolean[][] dp = new boolean[N + 1][N + 1];
+        
+        // 길이 1
+        for (int i = 1; i <= N; i++) {
+            dp[i][i] = true;
+        }
+        
+        // 길이 2
+        for (int i = 1; i < N; i++) {
+            if (arr[i] == arr[i + 1]) dp[i][i + 1] = true;
+        }
+        
+        // 길이 3 이상
+        for (int len = 3; len <= N; len++) {
+            for (int i = 1; i + len - 1<= N; i++) {
+                if (arr[i] == arr[i + len - 1] && dp[i + 1][i + len - 2]) dp[i][i + len - 1] = true;
+            }
+        }
+        
+        
         int M = Integer.parseInt(br.readLine());
         StringBuilder sb = new StringBuilder();
         
@@ -21,19 +41,8 @@ public class Main {
             int left = Integer.parseInt(st.nextToken());
             int right = Integer.parseInt(st.nextToken());
             
-            boolean possible = true;
-            
-            while (left <= right) {
-                if (arr[left] != arr[right]) {
-                    possible = false;
-                    break;
-                }
-                left++;
-                right--;
-            }
-            
-            if (possible) sb.append(1).append("\n");
-            else sb.append(0).append("\n");
+            if (dp[left][right]) sb.append("1\n");
+            else sb.append("0\n");
         }
         
         System.out.println(sb);
